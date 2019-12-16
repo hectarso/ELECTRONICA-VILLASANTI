@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>ELECTRONICA VILLASANTI | Cajas</title>
+        <link rel="icon" type="image/png" href="../../../favicon.png"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body background="../../../img/fondo.jpg">
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+    <center>
+        <div id="panelLinea" class="panel primary-celeste" style="background-color: #e7e7e7;width: 70%;margin: 0%">
+            <div class="panel-heading centrado">Cajas | Detalle</div>
+            <div class="panel-body">
+                <form id="formLinea">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id Linea</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_detallecaja" name="id_detallecaja" type="text" class="fcontrolbordo input-sm" placeholder="Id" readonly="readonly">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Venta</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_venta" name="id_venta" type="text" class="fcontrolbordo input-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdVenta" type="button" class="btn azul azul1 btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-1">
+                            <span> Factura Nº</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="numero_factura" name="numero_factura" type="text" class="fcontrolbordo input-sm" placeholder="nºfactura" readonly="readonly">
+                        </div>
+                        <div class="col-md-1">
+                            <span> Total a Pagar</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="total" name="total" type="text" class="fcontrolbordo input-sm" placeholder="total" readonly="readonly">
+                        </div>
+                    </div> 
+                    <hr>
+                    
+                    
+                    <!--div class="row">
+                        <div class="col-md-1">
+                            <span>Id</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_pago" name="id_pago" type="text" class="fcontrolbordo input-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdPago" type="button" class="btn azul azul1 btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+
+                        <div class="col-md-1">
+                            <span>Forma de Pago</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="forma_pago" name="forma_pago" type="text" class="fcontrolbordo input-sm" placeholder="pago">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>-->
+                    
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>tipo factura</span>
+                        </div>
+                        <div class="col-md-2">
+                            <select name="id_pago" id="id_tipo_factura" class="form-control input-sm" >
+                                <option selected value="1">CONTADO</option>                              
+                            </select>
+                        </div>  
+                        <div class="col-md-1">
+                            <span>tipo pago</span>
+                        </div>
+                        <div class="col-md-2">
+                            <select name="id_pago" id="id_pago" class="form-control input-sm" >                               
+                                <option value="1">EFECTIVO</option> 
+
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span> Importe</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="importe_caja" name="importe_caja" type="text" class="fcontrolbordo input-sm" placeholder="importe" onkeypress="return soloNumeros(event)">
+                        </div>
+
+                        <div class="col-md-1">
+                            <span> Vuelto</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="vuelto" name="vuelto" type="text" class="fcontrolbordo input-sm" placeholder="vuelto" onkeypress="return soloNumeros(event)" style="">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="panel-footer centrado">
+                <button id="botonAgregarLinea" type="button" class="btn azul azul1 btn-sm">Confirmar</button>
+
+
+                <!--button id="botonEliminarLinea" type="button" class="btn bordo bordo1 btn-sm" data-toggle="modal" data-target="#confirmarEliminarLinea">Eliminar</button-->
+                <button id="botonSalirLinea" type="button" class="btn azul azul1 btn-sm">Salir</button>
+            </div>
+        </div>
+
+        <div id="panelPrograma" class="panel primary-celeste" style="background-color: #e7e7e7;width: 70%;height: 80%">
+            <div class="panel-heading centrado">Cajas<span id="susuario_usuario"></span></div>
+            <div class="panel-body">
+                <form id="formPrograma">
+
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id Cajero</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="sid_usuario" name="sid_usuario" type="text" class="fcontrolbordo 
+                                   input-sm" placeholder="id" readonly="readonly">                         
+                        </div>
+                        <div class="col-md-1">
+                            <span> Cajero </span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="snombre_usuario" name="snombre_usuario" type="text" class="fcontrolbordo 
+                                   input-sm" placeholder="vendedor" readonly="readonly">                         
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id Caja</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_caja" name="id_caja" type="text"
+                                   class="fcontrolbordo imput-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdCaja" type="button" class="btn azul azul1 btn-sm"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">   
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Fecha</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="fecha_apertura" name="fecha_apertura" type="date" class="fcontrolbordo input-sm">                         
+                        </div>
+                        <div class="col-md-1">
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Monto</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="monto_inicial" name="monto_inicial" type="text" class="fcontrolbordo 
+                                   input-sm" onkeypress="return soloNumeros(event)" onkeyup="formatearNumero(this, this.value.charAt(this.value.length - 1))">                         
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Estado</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="estado_caja" name="estado_caja" type="text" class="fcontrolbordo 
+                                   input-sm"  readonly="readonly">                         
+                        </div>
+                    </div>
+                </form>
+                <div id="detalle" hidden="" style="height: 100%; width: 100%; overflow: auto" align="center">
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+
+                                <th class="centrado">Caja</th>
+                                <th class="centrado">Factura</th>
+                                <th class="centrado">Id Pago</th>
+                               
+                                <th class="centrado">Forma de Pago</th>
+                                <th class="centrado">Importe</th>
+                                <th class="centrado">
+                                    <button onclick="agregarLinea()" type="button" class="btn azul azul1 btn-sm">
+                                        <span class="glyphicon glyphicon-plus"></span></button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="contenidoDetalle">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel-footer centrado">
+                <button id="botonAgregar" type="button" class="btn azul azul1 btn-sm">Abrir</button>
+                <button id="botonModificar" type="button" class="btn azul azul1 btn-sm">Cerrar</button>
+                <button id="BotonEliminar" type="button" class="btn azul azul1 btn-sm" data-toggle="modal"
+                        data-target="#confirmarEliminar">Eliminar</button>
+                <button id="botonSalir" type="button" class="btn azul azul1 btn-sm">Salir</button>
+            </div>
+        </div></center>
+    <div id="mensajes" class="well well-sm centrado">Mensaje del Sistema.</div>
+    <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header centrado">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">
+                            &times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+                </div>
+                <div class="modal-footer centrado">
+                    <button id="botonEliminarAlert" type="button" class="btn azul azul1 btn-sm">Eliminar</button>
+                    <button type="button" class="btn azul azul1 btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="confirmarEliminarLinea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header  centrado">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabelLinea">Mensaje del Sistema</h4>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro de eliminar esta linea?
+                </div>
+                <div class="modal-footer centrado">
+                    <button id="botonEliminarAlertLinea" type="button" class="btn azul azul1 btn-sm">Anular</button>
+                    <button type="button" class="btn azul azul1 btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/funciones.js" type="text/javascript"></script>
+    <script src="../../../js/funciones.js" type="text/javascript"></script>
+    <script>
+                                    verificarSesion(true);
+                                    $("#buscar").css("display", "none");
+                                    $("#panelLinea").css("display", "none");
+                                    setTimeout('buscarIdCaja()', 500);
+
+                                    //$("#id_caja").focus();
+                                    //siguientecampo("#id_caja", "#nombre_caja", false);
+                                    /*$("#id_caja").focusout(function (event) {
+                                     if ($("#id_caja").val() === "") {
+                                     $("#id_caja").val("0");
+                                     }
+                                     buscarIdCaja();
+                                     });*/
+
+                                    $("#id_caja").focusout(function (event) {
+                                        if ($("#id_caja").val() === "") {
+                                            $("#id_caja").val("0");
+                                        }
+                                        buscarIdCaja();
+                                        var id = $("#id_caja").val();
+                                        $("#id_caja").val("0");
+                                        //var img = "<img src='../../../img/pedidos/" + id + ".jpg' alt=''>";
+                                        //$("#foto").html(img);
+
+                                    });
+
+                                    $("#botonBuscarIdCaja").on('click', function () {
+                                        $("#buscar").load("buscar.html");
+                                        $("#buscar").fadeIn("slow");
+                                        $("#panelPrograma").fadeOut("slow");
+                                    });
+
+                                    /*$("#nombre_caja").focusout(function (event) {
+                                     if ($("#nombre_caja").val() !== "") {
+                                     buscarCaja();
+                                     }
+                                     
+                                     });*/
+
+                                    $("#id_venta").focusout(function (event) {
+                                        if ($("#id_venta").val() === "") {
+                                            $("#id_venta").val("0");
+                                        }
+                                        buscarIdVenta();
+
+
+                                    });
+
+                                    $("#botonBuscarIdVenta").on('click', function () {
+                                        $("#buscar").load("buscarVenta.html");
+                                        $("#buscar").fadeIn("slow");
+                                        $("#panelLinea").fadeOut("slow");
+                                    });
+                                    $("#vuelto").focusout(function (event) {
+                                        if ($("#vuelto").val() !== "" || ($("#vuelto").val() !== 0) && ($("#total").val() !== "") || ($("#total").val() !== 0)) {
+                                            vuelto(this);
+                                        }
+                                    });
+                                    $("#id_pago").focusout(function (event) {
+                                        if ($("#id_pago").val() === "") {
+                                            $("#id_pago").val("0");
+                                        }
+                                        buscarIdPagos();
+                                    });
+                                    $("#botonBuscarIdPago").on('click', function () {
+                                        $("#buscar").load("buscarPagos.html");
+                                        $("#buscar").fadeIn("slow");
+                                        $("#panelLinea").fadeOut("slow");
+                                    });
+
+                                    $("#botonAgregar").on('click', function () {
+                                        //if (validarFormulario()) {
+                                        agregarCaja();
+                                        //}  
+                                    });
+
+                                    $("#botonAgregarLinea").on('click', function () {
+                                        if (validarFormularioCaja()) {
+
+                                            agregarCajaDetalle();
+
+                                        }
+                                        var d = $("#id_venta").val();
+
+                                        var jsp = "jsp/ticket.jsp";
+                                        window.open(jsp + "?d=" + d);
+                                    });
+                                    $("#botonModificar").on('click', function () {
+                                        //if(validarFormulario()) {
+                                        modificarCaja();
+                                        //}   
+                                    });
+                                    $("#botonEliminarAlert").on('click', function () {
+                                        eliminarCaja();
+                                        $('#confirmarEliminar').modal('hide');
+                                    });
+                                    $("#botonSalir").on('click', function () {
+                                        location.href = "../ventas/index.html";
+                                    });
+
+                                    $("#botonSalirLinea").on('click', function () {
+                                        $("#panelLinea").fadeOut("slow");
+                                        $("#panelPrograma").fadeIn("slow");
+                                    });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<!--html>
+    <head>
+        <title>&COPY;2014 | SchemeBuild System | Menus</title>
+        <link rel="icon" type="image/png" href="../../../favicon.png" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+        <div id="panelLinea" class="panel panel-primary">
+<!--Detalle Cobro>
+<div class="panel-heading centrado">Detalle Cobro | <span id="snombre_empresa"></span> | <span id="susuario_usuario"></span></div>
+<div class="panel-body">
+    <form id="formLinea">
+        <div class="row">
+            <div class="col-md-1">
+                <span>Id cobro</span>
+            </div>
+            <div class="col-md-1">
+                <input id="id_cobro" name="id_cobro" type="text" class="form-control input-sm" placeholder="Id">
+            </div>
+            <div class="col-md-1">
+                <button id="botonBuscarIdCobro" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+            <div class="col-md-9">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-1">
+                <span>Id venta</span>
+            </div>
+            <div class="col-md-1">
+                <input id="id_venta" name="id_venta" type="text" class="form-control input-sm" placeholder="Id">
+            </div>
+            <div class="col-md-1">
+                <button id="botonBuscarIdVenta" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+            <div class="col-md-9">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-1">
+                <span>Id caja</span>
+            </div>
+            <div class="col-md-1">
+                <input id="id_caja" name="id_caja" type="text" class="form-control input-sm" placeholder="Id">
+            </div>
+            <div class="col-md-1">
+                <button id="botonBuscarIdCaja" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+            <div class="col-md-9">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-1">
+                <span>Total venta</span>
+            </div>
+            <div class="col-md-2">
+                <input id="total_venta" name="total_venta" type="text" class="form-control input-sm" placeholder="Total">
+            </div>
+            <div class="col-md-9">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-1">
+                <span>Id</span>
+            </div>
+            <div class="col-md-1">
+                <input id="id_pago" name="id_pago" type="text" class="form-control input-sm" placeholder="Id">
+            </div>
+            <div class="col-md-1">
+                <button id="botonBuscarIdPago" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+        
+            <div class="col-md-1">
+                <span>Forma Pago</span>
+            </div>
+            <div class="col-md-2">
+                <input id="forma_pago" name="forma_pago" type="text" class="form-control input-sm" placeholder="pago">
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="panel-footer centrado">
+    <button id="botonAgregarLinea" type="button" class="btn btn-primary btn-sm">Agregar</button>
+    <button id="botonModificarLinea" type="button" class="btn btn-primary btn-sm">Modificar</button>
+    <button id="botonEliminarLinea" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#confirmarEliminarLinea">Eliminar</button>
+    <button id="botonSalirLinea" type="button" class="btn btn-primary btn-sm">Salir</button>
+</div>
+</div>
+<!--Caja>
+<div id="panelPrograma" class="panel panel-primary">
+    <div class="panel-heading centrado">Caja de Cobranza | <span id="snombre_empresa"></span> | <span id="susuario_usuario"></span></div>
+<div class="panel-body">
+    <form id="formPrograma">
+        <div class="row">
+            <div class="col-md-1">
+                <span>Caja</span>
+            </div>
+            <div class="col-md-1">
+                <input id="id_caja" name="id_caja" type="text" class="form-control input-sm" placeholder="Id">
+            </div>
+            <div class="col-md-1">
+                <button id="botonBuscarIdCaja" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+            <div class="col-md-9">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-1">
+                <span>usuario</span>
+            </div>
+            <div class="col-md-1">
+                <input id="id_usuario" name="id_usuario" type="text" class="form-control input-sm" placeholder="Id">
+            </div>
+            <div class="col-md-1">
+                <button id="botonBuscarIdUsuario" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+            <div class="col-md-9">
+            </div>
+        </div>
+        <br>
+<!--div class="row">
+    <div class="col-md-1">
+        <span>Detalle Caja</span>
+    </div>
+    <div class="col-md-2">
+        <input id="detalle_caja" name="detalle_caja" type="text" class="form-control input-sm" placeholder="detalle">
+    </div>
+    <div class="col-md-9">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-1">
+        <span>Importe</span>
+    </div>
+    <div class="col-md-2">
+        <input id="importe_caja" name="importe_caja" type="text" class="form-control input-sm" placeholder="monto">
+    </div>
+    <div class="col-md-9">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-1">
+        <span>Hora Apertura</span>
+    </div>
+    <div class="col-md-2">
+        <input id="horaaper_caja" name="horaaper_caja" type="date" class="form-control 
+               input-sm" >
+    </div>
+
+    <div class="col-md-1">
+        <span>Hora arqueo</span>
+    </div>
+    <div class="col-md-2">
+        <input id="horaarqueo_caja" name="horaarqueo_caja" type="date" class="form-control 
+               input-sm" >
+    </div>
+    <div class="col-md-6">   
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-1">
+        <span>Hora Cierre</span>
+    </div>
+    <div class="col-md-2">
+        <input id="horacierre_caja" name="horacierre_caja" type="date" class="form-control 
+               input-sm" >
+    </div>
+    <div class="col-md-9">   
+    </div>
+</div>
+</form>
+</div>
+</div>
+<div class="panel-footer centrado">
+<button id="botonAgregar" type="button" class="btn btn-primary btn-sm">Confirmar</button>
+<button id="botonModificar" type="button" class="btn btn-primary btn-sm">Modificar</button>
+<button id="botonEliminar" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#confirmarEliminar">Cancelar</button>
+<button id="botonSalir" type="button" class="btn btn-primary btn-sm">Salir</button>
+</div>
+
+<div id="mensajes" class="well well-sm centrado">Mensajes del Sistema.</div>
+<div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+<div class="modal-header centrado">
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+</div>
+<div class="modal-body">
+    Está seguro de eliminar estos datos?
+</div>
+<div class="modal-footer centrado">
+    <button id="botonEliminarAlert" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+</div>
+</div>
+</div>
+</div>
+<!--*>
+<div class="modal fade" id="confirmarEliminarLinea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header  centrado">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabelLinea">Mensaje del Sistema</h4>
+            </div>
+            <div class="modal-body">
+                Está seguro de eliminar esta linea?
+            </div>
+            <div class="modal-footer centrado">
+                <button id="botonEliminarAlertLinea" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../js/jquery.min.js" type="text/javascript"></script>
+<script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../js/funciones.js" type="text/javascript"></script>
+<script src="js/funciones.js" type="text/javascript"></script>
+<script>
+  //  verificarSesion(true);
+    $("#buscar").css("display", "none");
+    $("#id_cobro").focus();
+    siguienteCampo("#id_cobro", "#id_venta", false);
+    siguienteCampo("#id_caja", "#total_venta", false);
+    $("#id_cobro").focusout(function (event) {
+        if ($("#id_cobro").val() === "") {
+            $("#id_cobro").val("0");
+        }
+        buscarIdMenu();
+    });
+    $("#botonBuscarIdMenu").on('click', function () {
+        $("#buscar").load("buscar.html");
+        $("#buscar").fadeIn("slow");
+        $("#panelPrograma").fadeOut("slow");
+    });
+    $("#botonAgregar").on('click', function () {
+        agregarMenu();
+    });
+    $("#botonModificar").on('click', function () {
+        modificarMenu();
+    });
+    $("#botonEliminarAlert").on('click', function () {
+        eliminarMenu();
+        $('#confirmarEliminar').modal('hide');
+    });
+    $("#botonSalir").on('click', function () {
+        location.href = "../../../menu.html";
+    });
+</script>
+
+</body>
+</html-->
+
+<html>
+    <head>
+        <title>ELECTRONICA VILLASANTI | Caja</title>
+        <link rel="icon" type="image/png" href="../../../favicon.png"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body background="../../../img/fondo.jpg">
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+        <!--Detalle Cobro-->
+    <center>
+        <div id="panelLinea" class="panel primary-celeste" style="background-color: #e7e7e7;width: 70%;margin: 0%" >
+
+            <div class="panel-heading centrado">Cobro | Detalle</div>
+            <div class="panel-body">
+                <form id="formLinea">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id cobro</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_cobro" name="id_cobro" type="text" class="form-control input-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdCobro" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id venta</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_venta" name="id_venta" type="text" class="form-control input-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdVenta" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id caja</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_caja" name="id_caja" type="text" class="form-control input-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdCaja" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Total venta</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="total_venta" name="total_venta" type="text" class="form-control input-sm" placeholder="Total">
+                        </div>
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_pago" name="id_pago" type="text" class="form-control input-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdPago" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+
+                        <div class="col-md-1">
+                            <span>Forma Pago</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="forma_pago" name="forma_pago" type="text" class="form-control input-sm" placeholder="pago">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer centrado">
+                <button id="botonAgregarLinea" type="button" class="btn btn-primary btn-sm">Agregar</button>
+                <button id="botonModificarLinea" type="button" class="btn btn-primary btn-sm">Modificar</button>
+                <button id="botonEliminarLinea" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#confirmarEliminarLinea">Eliminar</button>
+                <button id="botonSalirLinea" type="button" class="btn btn-primary btn-sm">Salir</button>
+            </div>
+        </div>
+    </center>
+    <!--DISEÑOPANEL-->
+    <center>
+        <div id="panelPrograma" class="panel primary-celeste" style="background-color: #e7e7e7;width: 70%;height: 80%">
+            <div class="panel-heading centrado">Caja de Cobranza<span id="snombre_empresa"></span> | <span id="susuario_usuario"></span></div>
+            <div class="panel-body">
+                <form id="formPrograma">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Caja</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_caja" name="id_caja" type="text" class="form-control input-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdCaja" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>usuario</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_usuario" name="id_usuario" type="text" class="form-control input-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdUsuario" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+                    <!--br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Detalle Caja</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="detalle_caja" name="detalle_caja" type="text" class="form-control input-sm" placeholder="detalle">
+                        </div>
+                        <div class="col-md-9">
+                        </div>
+                    </div-->
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Importe</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="importe_caja" name="importe_caja" type="text" class="form-control input-sm" placeholder="monto">
+                        </div>
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Hora Apertura</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="horaaper_caja" name="horaaper_caja" type="date" class="form-control 
+                                   input-sm" >
+                        </div>
+
+                        <div class="col-md-1">
+                            <span>Hora arqueo</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="horaarqueo_caja" name="horaarqueo_caja" type="date" class="form-control 
+                                   input-sm" >
+                        </div>
+                        <div class="col-md-6">   
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Hora Cierre</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="horacierre_caja" name="horacierre_caja" type="date" class="form-control 
+                                   input-sm" >
+                        </div>
+                        <div class="col-md-9">   
+                        </div>
+                    </div>
+                </form>
+
+                <div class="panel-footer centrado">
+                    <button id="botonAgregar" type="button" class="btn celeste celeste1 btn-sm">Confirmar</button>
+                    <button id="botonModificar" type="button" class="btn celeste celeste1 btn-sm">Modificar</button>
+                    <button id="botonEliminar" type="button" class="btn celeste celeste1 btn-sm" data-toggle="modal" data-target="#confirmarEliminar">Anular</button>
+                    <button id="botonSalir" type="button" class="btn celeste celeste1 btn-sm">Salir</button>
+                </div>
+            </div>
+            <div id="mensajes" class="well well-sm centrado">Mensaje del Sistema.</div>
+            <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header  centrado">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+                        </div>
+                        <div class="modal-body">
+                            Está seguro de eliminar estos datos?
+                        </div>
+                        <div class="modal-footer centrado">
+                            <button id="botonEliminarAlert" type="button" class="btn celeste celeste1 btn-sm">Eliminar</button>
+                            <button type="button" class="btn celeste celetes1 btn-sm" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--*-->
+            <div class="modal fade" id="confirmarEliminarLinea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header  centrado">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="myModalLabelLinea">Mensaje del Sistema</h4>
+                        </div>
+                        <div class="modal-body">
+                            Está seguro de eliminar esta linea?
+                        </div>
+                        <div class="modal-footer centrado">
+                            <button id="botonEliminarAlertLinea" type="button" class="btn celeste celeste1 btn-sm">Eliminar</button>
+                            <button type="button" class="btn celeste celeste1 btn-sm" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </center>
+    <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../../js/funciones.js" type="text/javascript"></script>
+    <script src="js/funciones.js" type="text/javascript"></script>
+    <script>
+        //verificarSesion(true);
+        $("#buscar").css("display", "none");
+        $("#panelLinea").css("display", "none");
+        $("#id_venta").focus();
+
+        siguienteCampo("#id_venta", "#id_cliente", false);
+
+
+
+
+
+        siguienteCampo("#id_producto", "#cantidad_producto_venta", false);
+
+        if ($("#id_venta").val() === "0") {
+            siguienteCampo("#id_cliente", "#botonAgregar", false);
+
+        } else {
+
+            siguienteCampo("#id_cliente", "#botonModificar", false);
+        }
+
+        $("#id_venta").focusout(function (event) {
+            if ($("#id_venta").val() === "") {
+                $("#id_venta").val("0");
+            }
+            buscarIdVenta();
+
+            var id = $("#id_venta").val();
+            $("#id_venta").val("0");
+            var img = "<img src='../../../img/ventas/" + id + ".jpg' alt=''>";
+            $("#foto").html(img);
+
+        });
+
+        $("#id_timbrado").focusout(function (event) {
+            if ($("#id_timbrado").val() === "") {
+                $("#id_timbrado").val("0");
+            }
+            buscarIdTimbrado();
+        });
+
+        $("#id_cliente").focusout(function (event) {
+            if ($("#id_cliente").val() === "") {
+                $("#id_cliente").val("0");
+            }
+            buscarIdCliente();
+        });
+
+        $("#id_producto").focusout(function (event) {
+            if ($("#id_producto").val() === "") {
+                $("#id_producto").val("0");
+            }
+            buscarIdProducto();
+        });
+
+        $("#id_producto").focusout(function (event) {
+            if ($("#cantidad_producto_venta").val().trim() === "" || $("#cantidad_producto_venta").val().trim() === "0") {
+                validarcantidad(this);
+            }
+        });
+
+        /*$("#id_producto").focusout(function (event) {
+         if ($("#cantidad_producto_venta").val() !== "" && $("#precio_venta_producto").val() !== "") {
+         pretotal(this);
+         }
+         });*/
+
+        $("#cantidad_producto_venta").focusout(function (event) {
+            if ($("#cantidad_producto_venta").val() !== "" && $("#precio_venta_producto").val() !== "") {
+                pretotal(this);
+            }
+        });
+
+        $("#cantidad_producto_venta").focusout(function (event) {
+            if ($("#cantidad_producto_venta").val() !== "" && $("#precio_venta_producto").val() !== "") {
+                iva(this);
+                ivagravada(this);
+            }
+        });
+
+        $("#botonAgregarLinea").on('click', function () {
+            if (validarcantidad()) {
+                agregarVentaDetalle();
+            }
+
+        });
+
+        $("#botonModificarLinea").on('click', function () {
+
+            modificarVentaDetalle();
+
+        });
+
+        $("#botonBuscarIdVenta").on('click', function () {
+            $("#buscar").load("buscar.html");
+            $("#buscar").fadeIn("slow");
+            $("#panelPrograma").fadeOut("slow");
+        });
+
+        $("#botonBuscarIdEstablecimiento").on('click', function () {
+            $("#buscar").load("buscarEstablecimiento.html");
+            $("#buscar").fadeIn("slow");
+            $("#panelPrograma").fadeOut("slow");
+        });
+
+        $("#botonBuscarIdTimbrado").on('click', function () {
+            $("#buscar").load("buscarTimbrados.html");
+            $("#buscar").fadeIn("slow");
+            $("#panelPrograma").fadeOut("slow");
+        });
+
+        $("#botonBuscarIdCliente").on('click', function () {
+            $("#buscar").load("buscarClientes.html");
+            $("#buscar").fadeIn("slow");
+            $("#panelPrograma").fadeOut("slow");
+        });
+
+        $("#botonBuscarIdProducto").on('click', function () {
+            $("#buscar").load("buscarProductos.html");
+            $("#buscar").fadeIn("slow");
+            $("#panelLinea").fadeOut("slow");
+        });
+
+        $("#botonAgregar").on('click', function () {
+
+            agregarVenta();
+
+        });
+
+        $("#botonModificar").on('click', function () {
+
+            modificarVenta();
+
+        });
+
+        $("#botonEliminarAlert").on('click', function () {
+            eliminarVenta();
+            $('#confirmarEliminar').modal('hide');
+        });
+
+        $("#botonSalir").on('click', function () {
+            location.href = "../../../menu.html";
+        });
+
+        $("#botonEliminarAlertLinea").on('click', function () {
+            eliminarVentaDetalle();
+            $('#confirmarEliminarLinea').modal('hide');
+        });
+
+        $("#botonSalirLinea").on('click', function () {
+            $("#panelLinea").fadeOut("slow");
+            $("#panelPrograma").fadeIn("slow");
+        });
+
+    </script>
+</body>
+</html>

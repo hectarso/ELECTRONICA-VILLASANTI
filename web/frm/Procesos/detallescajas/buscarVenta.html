@@ -1,0 +1,97 @@
+<link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+<body background="../../../img/fondo.jpg">
+<center>
+    <div id="panelBuscar" class="panel primary-celeste" style="background-color: #e7e7e7;width: 50%;margin: 0%">
+        <div class="panel-heading centrado">Buscar Ventas</div>
+        <div class="panel-body" style="background-color: #e7e7e7">
+            <form id="formBuscar">
+                <input type="hidden" id="bpagina" name="bpagina" value="1" />
+                <div class="row">
+                    <div class="col-md-2">
+                        <span>Nombre</span>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="bnombre_venta" name="bnombre_venta" type="text" class="form-control input-sm" placeholder="Nombre">
+                    </div>
+                    <div class="col-md-2">
+                        <button id="botonBuscar" type="button" class="btn azul azul1 btn-sm">Buscar</button>
+                    </div>
+                       <div class="col-md-2">
+                        
+                    </div>
+                    
+                </div>
+            </form>
+            <br>
+            <div id="resultado" style="height: 100%; width: 100%; overflow: auto" align="center">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <!--<th>Id</th>-->
+                            <th>Cod Factura</th>
+                            <!--<th>Id Establecimiento</th>
+                            <th>Nombre</th>
+                            <th>Ruc</th>
+                            <th>Id Puesto</th>
+                            <!--th>Direccion</th>
+                            <th>Ciudad</th>
+                            <th>Telefono</th>
+                            <th>Representante</th>
+                            <th>Id Timbrado</th>
+                            <th>N° Timbrado</th-->
+                            <th>Id Cliente</th>
+                            <th>Nombre Cliente</th>
+                            <th>RUC</th>
+                            <th>N.Factura</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contenidoBusqueda">
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pager">
+                        <li id="anterior"><a href="#"><span aria-hidden="true">&larr;</span> Anterior</a></li>
+                        <li id="siguiente"><a href="#">Siguiente <span aria-hidden="true">&rarr;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="panel-footer centrado">
+            <button id="botonSalirBuscar" type="button" class="btn azul azul1 btn-sm">Salir</button>
+        </div>
+    </div>
+</center>
+<script>
+    buscarNombreVenta2();
+    $("#bnombre_venta").focus();
+    siguienteCampo("#bnombre_venta", "#botonBuscar", false);
+    $("#botonBuscar").on("click", function () {
+        $("#contenidoBusqueda").html("");
+        $("#bpagina").val("1");
+        buscarNombreVenta2();
+        $("#bnombre_venta").focus();
+    });
+    $("#anterior").on("click", function () {
+        $("#contenidoBusqueda").html("");
+        var pag = parseInt($("#bpagina").val());
+        if (pag > 1) {
+            $("#bpagina").val(pag - 1);
+        }
+        buscarNombreVenta2();
+    });
+    $("#siguiente").on("click", function () {
+        $("#contenidoBusqueda").html("");
+        var pag = parseInt($("#bpagina").val());
+        $("#bpagina").val(pag + 1);
+        buscarNombreVenta2();
+    });
+
+    $("#botonSalirBuscar").on('click', function () {
+        $("#buscar").fadeOut("slow");
+        $("#panelLinea").fadeIn("slow");
+    });
+</script>
+

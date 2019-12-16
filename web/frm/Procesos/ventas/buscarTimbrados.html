@@ -1,0 +1,91 @@
+<link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+<body background="../../../img/fondo.jpg">
+<center>
+    <div id="panelBuscar" class="panel primary-bordo" style="background-color: #e7e7e7;width: 70%;margin: 0%">
+        <div class="panel-heading centrado">buscar timbrados</div>
+        <div class="panel-body" style="background-color: #e7e7e7">
+            <form id="formBuscar">
+                <input type="hidden" id="bpagina" name="bpagina" value="1" />
+                <div class="row">
+                    <div class="col-md-2">
+                        <span>Numero</span>
+                    </div>
+                    <div class="col-md-8">
+                        <input id="bnumero_timbrado" name="bnumero_timbrado" type="text" class="fcontrolbordo input-sm" placeholder="Nombre">
+                    </div>
+                    <div class="col-md-2">
+                        <button id="botonAgregarTimbrados" type="button" class="btn azul azul1 btn-sm">
+                            <span class="glyphicon glyphicon-plus-sign"></span></button>
+                        <button id="botonBuscar" type="button" class="btn azul azul1 btn-sm">buscar</button>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <div id="resultado" style="height: 100%; width:100%; overflow: auto" align="center">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>N. Timbrado</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha actual</th>
+                            <th>Fecha Fin</th>
+                            <th>Desde</th>
+                            <th>Hasta</th>
+                            <th>Estado</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody id="contenidoBusqueda">
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pager">
+                        <li id="anterior"><a href="#" class="textobordo"><span aria-hidden="true" class="textobordo">&larr;</span>Anterior</a></li>
+                        <li id="siguiente"><a href="#" class="textobordo">Siguiente<span aria-hidden="true" class="textobordo">&rarr;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="panel-footer centrado">
+            <button id="botonSalirBuscar" type="button" class="btn azul azul1 btn-sm">Salir</button>
+        </div>
+    </div>
+</center>
+    <script>
+        buscarNumeroTimbrado();
+        $("#bnumero_timbrado").focus();
+        siguienteCampo("#bnumero_timbrado", "#botonBuscar", false);
+        $("#botonBuscar").on("click", function () {
+            $("#contenidoBusqueda").html("");
+            $("#bpagina").val("1");
+            buscarNumeroTimbrado();
+            $("#bnumero_timbrado").focus();
+        });
+        $("#anterior").on("click", function () {
+            $("#contenidoBusqueda").html("");
+            var pag = parseInt($("#bpagina").val());
+            if (pag > 1) {
+                $("#bpagina").val(pag - 1);
+            }
+            buscarNumeroTimbrado();
+        });
+        $("#siguiente").on("click", function () {
+            $("#contenidoBusqueda").html("");
+            var pag = parseInt($("#bpagina").val());
+            $("#bpagina").val(pag + 1);
+            buscarNumeroTimbrado();
+        });
+        $("#botonSalirBuscar").on('click', function () {
+            $("#buscar").fadeOut("slow");
+            $("#panelPrograma").fadeIn("slow");
+        });
+        $("#botonAgregarTimbrados").on('click', function () {
+        window.open("../../Archivos/timbrados/index.html","timbrados",'height=600,width=700,left=300,top=50,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+      
+    });
+
+    </script>
+</body>

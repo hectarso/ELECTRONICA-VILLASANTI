@@ -1,0 +1,88 @@
+<link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+<body background="../../../img/fondo.jpg">
+<center>
+    <div id="panelBuscar" class="panel primary-bordo" style="background-color: #e7e7e7;width: 70%;margin: 0%">
+        <div class="panel-heading centrado">Buscar Timbrados</div>
+        <div class="panel-body" style="background-color: #e7e7e7">
+            <form  id="formBuscar">
+                <input type="hidden" id="bpagina" name="bpagina" value="1" >
+                <div class="row">
+                    <div class="col-md-1">
+                        <span>Numero</span>
+                    </div>
+                    <div class="col-md-9">
+                        <input id="bnombre" name="bnombre" type="text" class="fcontrolbordo input-sm" placeholder="Numero" />
+                    </div>
+                    <div class="col-md-2">
+
+                        <button id="botonBuscar" type="button" class="btn bordo bordo1 btn-sm">Buscar</button>
+
+                    </div>
+                </div>
+            </form>
+            <br>
+            <div id="resultado" style="height: 100%; width: 100%; overflow: auto" align="center"   >
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>N. Timbrado</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Actual</th>
+                            <th>Fecha Fin</th>
+                            <th>Desde</th>
+                            <th>Hasta</th>
+                            <th>Estado</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody id="contenidoBusqueda">
+
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pager">
+                        <li id="anterior"><a href="#" class="textobordo"><span aria-hidden="true" class="textobordo">&larr;</span>Anterior</a></li>
+                        <li id="siguiente"><a href="#" class="textobordo">Siguiente<span aria-hidden="true" class="textobordo">&rarr;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="panel-footer centrado">
+            <button id="botonSalirBuscar" type="button" class="btn bordo bordo1 btn-sm">Salir</button>
+        </div>
+    </div>
+</center>
+    <script>
+        buscarNumeroTimbrados();
+        $("#bnombre").focus();
+        // siguienteCampo("#bnombre", "#botonBuscar", false);
+        $("#botonBuscar").on("click", function () {
+            $("#contenidoBusqueda").html("");
+            $("#bpagina").val("1");
+            buscarNumeroTimbrados();
+            $("#bnombre").focus();
+        });
+        $("#anterior").on("click", function () {
+            $("#contenidoBusqueda").html("");
+            var pag = parseInt($("#bpagina").val());
+            if (pag > 1) {
+                $("#bpagina").val(pag - 1);
+            }
+            buscarNumeroTimbrados();
+        });
+        $("#siguiente").on("click", function () {
+            $("#contenidoBusqueda").html("");
+            var pag = parseInt($("#bpagina").val());
+            $("#bpagina").val(pag + 1);
+            buscarNumeroTimbrados();
+        });
+
+        $("#botonSalirBuscar").on("click", function () {
+            $("#buscar").fadeOut("slow");
+            $("#panelPrograma").fadeIn("slow");
+        });
+    </script>
+</body>

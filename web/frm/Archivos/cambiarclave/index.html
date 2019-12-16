@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ELECTRONICA VILLASANTI | Cambiar clave de usuario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body background="../../../img/fondo.jpg">
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+        <div id="panelPrograma" >
+            <div id="panelAcceso" class="panel primary-bordo" style="background-color: #dcdcdc">
+                 <div class="panel-heading centrado">CAMBIO DE CONTRASEÑA </div>
+            <div class="panel-body">
+                <form id="formPrograma">
+                    
+                    <div class="row">
+
+                        <div class="col-md-2">
+                            <span>Id</span>
+                        </div>
+                        <div class="col-sm-3">
+                            <input id="id_usuario" class="fcontrolbordo" disabled="disabled">
+                        </div>
+
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+                    
+                    
+                     <div class="row">
+                        <div class="col-md-2">
+                            <span>Usuario</span>
+                        </div>
+                        <div class="col-md-5">
+                            <input id="nombre_usuario" name="nombre_usuario" type="text" class="fcontrolbordo input-sm" placeholder="Nombre de usuario" disabled="disabled">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-2">
+                            <span>Usuario</span>
+                        </div>
+                        <div class="col-md-5">
+                            <input id="usuario_usuario" name="usuario_usuario" type="text" class="fcontrolbordo input-sm" placeholder="Nombre de usuario" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <span>Clave actual</span>
+                        </div>
+                        <div class="col-md-5">
+                            <input id="claveactual_usuario" name="claveactual_usuario" type="password" class="fcontrolbordo input-sm" placeholder="Clave actual">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <span>Clave nueva</span>
+                        </div>
+                        <div class="col-md-5">
+                            <input id="clavenueva_usuario" name="clavenueva_usuario" type="password" class="fcontrolbordo input-sm" placeholder="Clave actual">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer centrado">
+                <button id="botonModificar" type="button" class="btn bordo bordo1 btn-sm"
+                        data-toggle="modal" data-target="#confirmarModificar">Modificar</button>                <button id="botonSalir" type="button" class="btn bordo bordo1 btn-sm">Salir</button>
+            </div>
+                </div>
+        </div>
+        <div id="mensajes" class="well well-sm centrado">Mensajes del Sistema.</div>
+        <div class="modal fade" id="confirmarModificar" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header centrado"> 
+                        <button type="button" class="close" data-dismiss="modal"> 
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+
+                    </div>
+                    <div class="modal-body"> 
+                        Está seguro de cambiar estos datos?
+                    </div>
+                    <div class="modal-footer centrado"> 
+                        <button id="botonModificarAlert" type="button" class="btn bordo bordo1 btn-sm"> 
+                            Cambiar clave
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal"> 
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../js/funciones.js" type="text/javascript"></script>
+        <script src="js/funciones.js" type="text/javascript"></script>
+        <script>
+            verificarSesion(true);
+            buscarIdUsuarioClave();
+            
+            $("#botonModificarAlert").on('click', function () {
+                if (validarFormulario2()) {
+                    modificarClave();
+                    
+                }
+                $("#confirmarModificar").modal('hide');
+            });
+            $("#botonSalir").on('click', function () {
+                location.href = "../../../menu.html";
+
+            });
+        </script>
+    </body>
+</html>

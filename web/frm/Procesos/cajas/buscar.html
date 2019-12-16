@@ -1,0 +1,79 @@
+<link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+
+<div id="panelBuscar" class="panel primary-celeste" style="background-color: #e7e7e7;width: 45%;margin: 0%">
+    <div class="panel-heading centrado">Buscar Cajas</div>
+    <div class="panel-body">
+        <form id="formBuscar">
+            <input type="hidden" id="bpagina" name="bpagina" value="1" />
+            <div class="row">
+                <div class="col-md-1">
+                    <span>Nombre</span>
+                </div>
+                <div class="col-md-9">
+                    <input id="bnombre_caja" name="bnombre_caja" type="text" class="fcontrolbordo input-sm" placeholder="Nombre">
+                </div>
+                <div class="col-md-2">
+                    <button id="botonBuscar" type="button" class="btn azul azul1 btn-sm">Buscar</button>
+                </div>
+            </div>
+        </form>
+        <br>
+        <div id="resultado" style="height: 100%; width: 100%; overflow: auto" align="center">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Id Usuario</th>
+                        <th>Nombre</th>
+                        <th>Monto Inicial</th>
+                        <th>Apertura</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="contenidoBusqueda">
+                </tbody>
+            </table>
+            <nav>
+                <ul class="pager">
+                    <li id="anterior"><a href="#"><span aria-hidden="true">&larr;</span> Anterior</a></li>
+                    <li id="siguiente" class="textobordo"><a href="#">Siguiente <span aria-hidden="true">&rarr;</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="panel-footer centrado">
+        <button id="botonSalirBuscar" type="button" class="btn celeste celeste1 btn-sm">Salir</button>
+    </div>
+</div>
+<script>
+    buscarNombreCaja();
+    $("#bnombre_caja").focus();
+    siguienteCampo("#bnombre_caja", "#botonBuscar", false);
+    $("#botonBuscar").on("click", function () {
+        $("#contenidoBusqueda").html("");
+        $("#bpagina").val("1");
+        buscarNombreCaja();
+        $("#bnombre_caja").focus();
+    });
+    $("#anterior").on("click", function () {
+        $("#contenidoBusqueda").html("");
+        var pag = parseInt($("#bpagina").val());
+        if (pag > 1) {
+            $("#bpagina").val(pag - 1);
+        }
+        buscarNombreCaja();
+    });
+    $("#siguiente").on("click", function () {
+        $("#contenidoBusqueda").html("");
+        var pag = parseInt($("#bpagina").val());
+        $("#bpagina").val(pag + 1);
+        buscarNombreCaja();
+    });
+
+    $("#botonSalirBuscar").on('click', function () {
+        $("#buscar").fadeOut("slow");
+        $("#panelPrograma").fadeIn("slow");
+    });
+</script>

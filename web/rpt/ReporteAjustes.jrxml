@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="17612f28-19ad-44fa-a271-661ddab1c979">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="desde_id" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="hasta_id" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from  ajustes_stocks aj left join usuarios
+on aj.id_usuario=usuarios.id_usuario
+left join ajuste_stock_detalle asd
+ on  aj.id_ajuste_stock=asd.id_ajuste_stock
+left join productos a on
+a.id_producto=asd.id_producto
+where aj.fecha_ajuste_stock  between  $P{desde_id} and $P{hasta_id}]]>
+	</queryString>
+	<field name="id_ajuste_stock" class="java.lang.Integer"/>
+	<field name="fecha_ajuste_stock" class="java.sql.Date"/>
+	<field name="motivo_ajuste_stock" class="java.lang.String"/>
+	<field name="id_usuario" class="java.lang.Integer"/>
+	<field name="nombre_usuario" class="java.lang.String"/>
+	<field name="usuario_usuario" class="java.lang.String"/>
+	<field name="clave_usuario" class="java.lang.String"/>
+	<field name="id_rol" class="java.lang.Integer"/>
+	<field name="id_ajuste_stock_detalle" class="java.lang.Integer"/>
+	<field name="id_producto" class="java.lang.Integer"/>
+	<field name="cantidad_ajuste_stock" class="java.lang.Integer"/>
+	<field name="nombre_producto" class="java.lang.String"/>
+	<field name="id_marca" class="java.lang.Integer"/>
+	<field name="id_categoria" class="java.lang.Integer"/>
+	<field name="stockmin_producto" class="java.lang.Integer"/>
+	<field name="stockmax_producto" class="java.lang.Integer"/>
+	<field name="codigo_producto" class="java.lang.String"/>
+	<field name="precio_compra_producto" class="java.lang.Integer"/>
+	<field name="precio_venta_producto" class="java.lang.Integer"/>
+	<field name="iva_producto" class="java.lang.Integer"/>
+	<field name="id_ubicacion" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" backcolor="#CCCCCC" uuid="87dd3c5d-0389-4b6d-97d1-1a9a4255b055"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="157" y="29" width="262" height="20" uuid="6d9b2f62-0c6a-49d3-8668-298014ae6ebf"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Ajustes - ELECTRONICA VILLASANTI]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="79" height="26" backcolor="#CCCCCC" uuid="0bc83c97-8a33-41a2-9bbc-89415269b185"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="77" y="0" width="129" height="26" backcolor="#CCCCCC" uuid="14aa7b39-ceff-4361-8422-ac85b8ec9f84"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="206" y="0" width="175" height="26" backcolor="#CCCCCC" uuid="4d24e72f-678e-4ec6-a7c9-d6053fb18c34"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="381" y="0" width="100" height="26" backcolor="#CCCCCC" uuid="7aebcf32-769b-4180-b30a-2e03a5287c6c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="79" height="26" uuid="d72adb48-77ed-4d63-9f1e-d3c2e0308d57"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[USUARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="206" y="0" width="175" height="26" uuid="f28c4be8-c29e-485d-9f8e-1388b2af54cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="0" width="125" height="26" uuid="c8e8727e-198a-4b61-8312-7f15c7bf389f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MOTIVO DE AJUSTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="381" y="0" width="100" height="26" uuid="3961a74d-49f5-495b-833c-6aae9d4f03e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD DE AJUSTE]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="481" y="0" width="74" height="26" backcolor="#CCCCCC" uuid="a0c652fa-ef18-489f-9aed-deaa96c354c0"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="481" y="0" width="74" height="26" uuid="318d0fc1-e64c-47a6-b7d3-dd0c32d193ed"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="79" height="38" uuid="b8c73075-9d9a-40f2-8f40-7528823ccf59"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="77" y="0" width="129" height="38" uuid="c5c1dff3-e86a-43f7-978a-33af774e8187"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="206" y="0" width="175" height="38" uuid="6055c894-6e4c-4e31-af0a-d5e1ffb40e9d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="381" y="0" width="100" height="38" uuid="62b6cc4a-aa0e-4cdf-b788-80616d76f900"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="0" width="79" height="38" uuid="9f9b63fc-1cb6-4da9-99f7-8784e45d16ea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="0" width="129" height="38" uuid="4463e1e7-8880-4087-a969-8f0c6f1c6ced"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{motivo_ajuste_stock}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="206" y="0" width="175" height="38" uuid="c1b54359-fec1-4a03-8194-f8e689f63407"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombre_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="0" width="100" height="38" uuid="b156e038-109a-4771-849e-23b175114b32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cantidad_ajuste_stock}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="481" y="0" width="74" height="38" uuid="ad3e56fd-4bbb-4ef5-b4ae-d255180a914f"/>
+			</rectangle>
+			<textField>
+				<reportElement x="481" y="0" width="74" height="38" uuid="805e074e-80f0-4f51-aaff-98f86c459dc1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fecha_ajuste_stock}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
